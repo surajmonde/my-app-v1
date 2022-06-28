@@ -1,0 +1,40 @@
+:host ::ng-deep .tabview-custom {
+    i, span {
+        vertical-align: middle;
+    }
+
+    span {
+        margin: 0 .5rem;
+    }
+}
+
+:host ::ng-deep .p-button {
+    margin-right: .25rem;
+}
+
+:host ::ng-deep .p-tabview p {
+    line-height: 1.5;
+    margin: 0;
+}
+
+:host ::ng-deep th.action-col.ng-star-inserted {
+    visibility: hidden;
+    width: 0.001% !important;
+}
+:host ::ng-deep .p-tabview-title{
+    font-size: 12px;
+    text-align: center;
+    font-weight: 600;
+    width: 100%;
+}
+:host ::ng-deep .p-ripple {
+    height: 30px !important;
+}
+
+:host ::ng-deep .p-tabview .p-tabview-nav li{
+    width: 140px;
+}
+:host ::ng-deep .p-tabview-nav-container{
+    position: relative;
+
+}

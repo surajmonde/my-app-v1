@@ -1,0 +1,92 @@
+<div class="container back-color">
+    <div class="row">
+        <div class="col-md-6">
+            <label class="alert-lbl">Immunization Alerts</label>
+            <div class="row mt-3">
+                <div class="col-md-1"><label class="">Find</label>
+                </div>
+                <div class="col-md-6"> <input class="form-control" type="text" name="name" [(ngModel)]="name"
+                        (ngModelChange)="Search()" placeholder="Enter the name"></div>
+                <div class="col-md-5">
+                    <input type="button" class="btn-delete" (click)="deleteItem()" value="Delete">
+                </div>
+            </div>
+            <table class="table table-bordered mt-3">
+                <thead class="tbl-header">
+                    <tr>
+                        <th class="header-check">
+                            <input type="checkbox" [checked]="isAllCheckBoxChecked()"
+                                (change)="checkAllCheckBox($event)">
+                        </th>
+                        <th class="header-name" (click)="sort('name')">Name</th>
+                        <th class="header-desc" (click)="sort('description')">Description</th>
+                        <th class="header-web" (click)="sort('webReference')">Web Reference</th>
+                    </tr>
+                </thead>
+                <tbody class="tbl-body">
+                    <tr
+                        *ngFor="let jsonData of data | orderBy: key: reverse | paginate:{itemsPerPage:10,currentPage:p}; let i=index;">
+                        <td><input type="checkbox" value="{{jsonData.id}}" [(ngModel)]="data[i].checked"></td>
+                        <td>{{jsonData.name}}</td>
+                        <td>{{jsonData.description}}</td>
+                        <td>{{jsonData.webReference}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+        <div class="col-md-6 form-border">
+            <form [formGroup]="dataForm">
+                <div class="mt-5 box">
+                    <div class="form-row">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Name</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" formControlName="name" class="form-control"
+                                    placeholder="enter the name">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-2">
+                                <label>Description</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" formControlName="description" class="form-control"
+                                    placeholder="enter the description">
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-2">
+                                <label>Web Ref.</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" formControlName="webReference" class="form-control"
+                                    placeholder="enter the webReference">
+                            </div>
+                        </div>
+                        <div class="form-row mt-4 float-right btn-position">
+                            <div class="col-md-6">
+                                <button type="button" class="add-btn" [disabled]="!dataForm.valid"
+                                    (click)="addItem()">Add</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+            <div class="row footer-btn">
+                <div class="col-md-6">
+                    <button type="button" class="cancel-btn">Cancel</button>               
+                </div>
+                <div class="col-md-6">
+                    <button type="button" class="ok-btn">Ok</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

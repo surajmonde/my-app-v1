@@ -1,0 +1,35 @@
+<div class="alert-container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-12">
+            <div class="modal-header">
+                <div class="col-md-11 col-sm-11 col-11">
+                    <p class="model-heading">Alerts</p>
+                </div>
+                <div class="col-md-1 col-sm-1 col-1 text-right">
+                    <app-close-modal class="close-position"></app-close-modal>
+                </div>
+            </div>
+            <div class="tab-alert pt-4">
+                <p-tabView>
+                    <p-tabPanel header="Immunization Alerts">
+                        <app-table></app-table>
+                    </p-tabPanel>
+                    <p-tabPanel header="Lab Alerts" [disabled]="true">
+                    </p-tabPanel>
+                    <p-tabPanel header="DI Alerts" [disabled]="true">
+                    </p-tabPanel>
+                    <p-tabPanel header="Procedure Alerts" [disabled]="true">
+                    </p-tabPanel>
+                    <p-tabPanel header="Rx Specific Alerts" [disabled]="true">
+                    </p-tabPanel>
+                    <p-tabPanel header="Dx Specific Alerts" [disabled]="true">
+                    </p-tabPanel>
+                    <p-tabPanel header="Patient Specific Alerts" [disabled]="true">
+                    </p-tabPanel>
+                </p-tabView>
+            </div>
+        </div>
+
+    </div>
+
+</div>
